@@ -219,6 +219,7 @@ npm run dev
 ## 👨‍💻 Author
 
 **Siddhant Shukla**
+1st Year Project
 
 IIT Bhilai | Electronics and Communication Engineering
 
