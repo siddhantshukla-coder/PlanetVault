@@ -1,0 +1,90 @@
+
+
+.find-planet-page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 60px 24px 100px;
+}
+
+.search-header h1 {
+  font-family: "Space Grotesk", "Inter", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 24px;
+}
+
+/* Search bar reads as one pill-shaped control, not an
+   input sitting next to a separate button */
+.search-bar {
+  display: flex;
+  border-radius: 999px;
+  border: 1px solid var(--border-glow);
+  background: rgba(255, 255, 255, 0.03);
+  overflow: hidden;
+  max-width: 560px;
+}
+
+.search-bar input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 14px 20px;
+  font-family: "Inter", sans-serif;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+
+.search-bar input::placeholder {
+  color: rgba(139, 143, 168, 0.6);
+}
+
+.search-bar input:focus {
+  outline: none;
+}
+
+.search-bar .btn-primary {
+  border-radius: 0;
+  padding: 14px 28px;
+}
+
+.search-bar:focus-within {
+  border-color: var(--accent-comet);
+  box-shadow: 0 0 0 3px rgba(52, 217, 196, 0.12);
+}
+
+.planet-grid {
+  margin-top: 44px;
+}
+
+/* Suggested static content — shown before any search has run or
+   when a search returns nothing, using the `planets` state you
+   already have (no new variables):
+   {planets.length === 0 && (
+     <p className="empty-state">
+       Search for a planet by name to see it here.
+     </p>
+   )} */
+.empty-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-family: "Inter", sans-serif;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  padding: 60px 20px;
+  border: 1px dashed var(--border-glow);
+  border-radius: 14px;
+}
+
+@media (max-width: 640px) {
+  .find-planet-page {
+    padding: 40px 20px 70px;
+  }
+  .search-bar {
+    flex-direction: column;
+    border-radius: 14px;
+  }
+  .search-bar .btn-primary {
+    border-radius: 0 0 14px 14px;
+  }
+}

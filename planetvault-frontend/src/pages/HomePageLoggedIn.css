@@ -1,0 +1,113 @@
+
+
+.home-loggedin {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 60px 24px 100px;
+}
+
+/* Softer, smaller glow than the marketing homepage —
+   this is a "welcome back," not a pitch */
+.welcome-hero {
+  position: relative;
+  padding: 20px 0 10px;
+}
+
+.welcome-hero::before {
+  content: "";
+  position: absolute;
+  top: -60px;
+  left: -40px;
+  width: 380px;
+  height: 240px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(139, 92, 246, 0.22) 0%,
+    rgba(52, 217, 196, 0.08) 45%,
+    transparent 75%
+  );
+  filter: blur(36px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.welcome-hero h1 {
+  position: relative;
+  z-index: 1;
+  font-family: "Space Grotesk", "Inter", sans-serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.welcome-hero p {
+  position: relative;
+  z-index: 1;
+  font-family: "Inter", sans-serif;
+  font-size: 0.98rem;
+  color: var(--text-muted);
+  margin: 10px 0 0;
+}
+
+/* Quick actions */
+.quick-actions-heading {
+  font-family: "Space Grotesk", "Inter", sans-serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 12px 0 20px;
+}
+
+.quick-actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 22px;
+}
+
+.action-card {
+  display: block;
+  text-decoration: none;
+  padding: 26px 24px;
+  border-radius: 14px;
+
+  background: var(--bg-glass);
+  border: 1px solid var(--border-glow);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.action-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent-comet);
+  box-shadow: 0 12px 40px rgba(52, 217, 196, 0.15);
+}
+
+.action-icon {
+  display: inline-block;
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+}
+
+.action-card h3 {
+  font-family: "Space Grotesk", "Inter", sans-serif;
+  font-size: 1.05rem;
+  color: var(--text-primary);
+  margin: 0 0 8px;
+}
+
+.action-card p {
+  font-family: "Inter", sans-serif;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .home-loggedin {
+    padding: 40px 20px 70px;
+  }
+}

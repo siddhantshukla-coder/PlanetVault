@@ -1,0 +1,144 @@
+/* ===================================================
+   PlanetVault — Navbar
+   Deep-space glass panel + orbit-trail hover signature
+   =================================================== */
+
+:root {
+  --bg-void: #0a0c16;
+  --bg-glass: rgba(20, 23, 40, 0.55);
+  --border-glow: rgba(139, 92, 246, 0.25);
+  --accent-nebula: #8b5cf6;
+  --accent-comet: #34d9c4;
+  --text-primary: #edeef7;
+  --text-muted: #8991b3;
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 18px 40px;
+
+  background: var(--bg-glass);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border-glow);
+
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+}
+
+/* Logo */
+.navbar-logo {
+  font-family: "Space Grotesk", "Inter", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: var(--text-primary);
+
+  background: linear-gradient(90deg, var(--text-primary) 40%, var(--accent-nebula) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Links container */
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Individual link */
+.nav-link {
+  position: relative;
+  font-family: "Inter", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-decoration: none;
+  padding-bottom: 8px;
+  transition: color 0.25s ease;
+}
+
+.nav-link:hover,
+.nav-link:focus-visible {
+  color: var(--text-primary);
+}
+
+.nav-link:focus-visible {
+  outline: 2px solid var(--accent-comet);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+/* Orbit trail: static faint line under every link */
+.nav-link::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: rgba(139, 92, 246, 0.15);
+}
+
+/* Orbit trail: the traveling "satellite" + comet tail, revealed on hover */
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: -6px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-comet);
+  box-shadow: 0 0 8px 2px var(--accent-comet);
+
+  opacity: 0;
+}
+
+.nav-link:hover::after,
+.nav-link:focus-visible::after {
+  opacity: 1;
+  animation: orbit-pass 0.7s ease-in-out forwards;
+}
+
+@keyframes orbit-pass {
+  0% {
+    left: -6px;
+    box-shadow: 0 0 8px 2px var(--accent-comet);
+  }
+  100% {
+    left: calc(100% - 2px);
+    box-shadow: -14px 0 10px -2px rgba(52, 217, 196, 0.5),
+      0 0 8px 2px var(--accent-comet);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-link::after {
+    transition: none;
+    animation: none !important;
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .navbar {
+    padding: 14px 20px;
+  }
+  .navbar-links {
+    gap: 20px;
+  }
+  .nav-link {
+    font-size: 0.85rem;
+  }
+}
