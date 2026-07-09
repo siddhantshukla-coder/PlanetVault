@@ -1,5 +1,6 @@
 
 const BASE_URL = import.meta.env.VITE_API_URL;
+
 export async function signup(userData){
     const response = await fetch(`${BASE_URL}/signup` , {
         method:'POST',
@@ -8,7 +9,7 @@ export async function signup(userData){
         },
         body:JSON.stringify(userData)
     });
-    const data=response.json();
+    const data=await response.json();
     if(!response.ok){
         throw new Error(data.message);
     }
