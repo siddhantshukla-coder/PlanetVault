@@ -272,6 +272,8 @@ app.delete("/deleteProfile", auth, async(req,res)=>{
 })
 
 // starting the server and providing it with the port number
-app.listen("5000",()=>{
-    console.log("Server running on port 5000");
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
 });
