@@ -3,6 +3,9 @@
 PlanetVault is a full-stack MERN application that allows users to securely manage and explore a shared planetary database. Users can create accounts, authenticate using JWT-based authorization, search planetary records, manage their profiles, and track their activity through personalized statistics.
 
 ---
+## 🌍 Live Application
+
+[Visit PlanetVault](https://planet-vault.vercel.app/)
 
 ## 🚀 Features
 
@@ -50,6 +53,10 @@ PlanetVault is a full-stack MERN application that allows users to securely manag
 ### Database
 - MongoDB Atlas
 - Mongoose
+  
+### Deployment
+- Vercel (Frontend)
+- Render (Backend)
 
 ---
 
