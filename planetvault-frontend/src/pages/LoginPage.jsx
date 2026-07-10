@@ -16,7 +16,10 @@ export function LoginPage() {
                 email,
                 password
             })
-            if(!response) alert("Incorrect Authentication or User not Found!")
+            if(!response){
+              alert("Incorrect Authentication or User not Found!")
+              return;
+            } 
             localStorage.setItem(
                 "token",
                 response.token
@@ -25,6 +28,7 @@ export function LoginPage() {
         }
         catch(err){
             console.log(err)
+            alert(err.response?.data?.message || "Login failed");
         }
     }
     return (
