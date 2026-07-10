@@ -28,7 +28,7 @@ export function LoginPage() {
         }
         catch(err){
             console.log(err)
-            alert(err.response?.data?.message || "Login failed");
+            alert("Login error!")
         }
     }
     return (
