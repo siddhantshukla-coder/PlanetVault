@@ -1,4 +1,19 @@
+// self pinging every 14 min...
+const url = `https://planetvault.onrender.com/`; 
+const interval = 14*60*1000; // Interval in milliseconds (14 minutes)
 
+//Reloader Function
+function reloadWebsite() {
+  axios.get(url)
+    .then(response => {
+      console.log(`Reloaded at ${new Date().toISOString()}: Status Code ${response.status}`);
+    })
+    .catch(error => {
+      console.error(`Error reloading at ${new Date().toISOString()}:`, error.message);
+    });
+}
+
+setInterval(reloadWebsite, interval);
 const BASE_URL = import.meta.env.VITE_API_URL;
 
 export async function signup(userData){

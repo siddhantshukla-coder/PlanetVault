@@ -173,6 +173,7 @@ app.post("/login", async (req,res)=>{
             email: req.body.email
         })
         if(!user){
+            alert("User not found!");
             return res.status(404).json({
                 message: "Bad Request"
             })
